@@ -8,7 +8,6 @@
     <artifactId>algorithm</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
     <build>
         <finalName>socket</finalName>
         <plugins>

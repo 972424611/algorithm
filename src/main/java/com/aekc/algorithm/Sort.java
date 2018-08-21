@@ -19,7 +19,6 @@ public class Sort {
         //如果某一次遍历没有交换，那就不必进行下一次遍历，因为所有元素都排序好了。
         boolean flag = true;
         for(int i = 1; i < array.length && flag; i++) {
-            System.out.println(i);
             flag = false;
             for(int j = 0; j < array.length - i; j++) {
                 if(array[j] > array[j + 1]) {
@@ -264,7 +263,7 @@ public class Sort {
     }
 
     public static void main(String[] args) {
-        int max = 100000000;
+        int max = 100;
         Sort sort = new Sort();
         Random random = new Random();
         int[] temp = new int[max];
@@ -273,11 +272,11 @@ public class Sort {
         }
         //System.out.println(Arrays.toString(temp));
 
-        //sort.print("bubbleSort", temp);
+        sort.print("bubbleSort", temp);
 
-        //sort.print("insertionSort", temp);
+        sort.print("insertionSort", temp);
 
-        //sort.print("selectionSort", temp);
+        sort.print("selectionSort", temp);
 
         sort.print("mergeSort", temp);
 
