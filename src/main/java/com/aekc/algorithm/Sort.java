@@ -100,13 +100,12 @@ public class Sort {
             } else {
                 temp[current3++] = array2[current2++];
             }
-
-            while(current1 < array1.length) {
-                temp[current3++] = array1[current1++];
-            }
-            while(current2 < array2.length) {
-                temp[current3++] = array2[current2++];
-            }
+        }
+        while(current1 < array1.length) {
+            temp[current3++] = array1[current1++];
+        }
+        while(current2 < array2.length) {
+            temp[current3++] = array2[current2++];
         }
     }
 
@@ -263,7 +262,7 @@ public class Sort {
     }
 
     public static void main(String[] args) {
-        int max = 100;
+        int max = 100000;
         Sort sort = new Sort();
         Random random = new Random();
         int[] temp = new int[max];
@@ -284,6 +283,6 @@ public class Sort {
 
         sort.print("bucketSort", temp);
 
-        //sort.print("heapSort", temp);
+        sort.print("heapSort", temp);
     }
 }

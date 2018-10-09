@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class EightQueens {
 
-    private static List<int[][]> list = new ArrayList<int[][]>();
+    private static List<int[][]> list = new ArrayList<>();
 
     private static int[][] checkerboard;
 
