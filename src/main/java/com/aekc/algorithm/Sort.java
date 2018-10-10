@@ -244,6 +244,41 @@ public class Sort {
         return removedObject;
     }
 
+    /**
+     * 快速排序另一个版本
+     * 时间复杂度为：O(nlogn)
+     */
+    public int[] quickSort2(int[] nums) {
+        return quickSort2(nums, 0, nums.length - 1);
+    }
+
+
+    public int[] quickSort2(int[] nums, int p, int r) {
+        if(p < r) {
+            int q = partition2(nums, p, r);
+            quickSort(nums, p, q - 1);
+            quickSort(nums, q + 1, r);
+        }
+        return nums;
+    }
+
+    public int partition2(int[] nums, int p, int r) {
+        int i = p;
+        int j = r + 1;
+        while(true) {
+            while(nums[++i] < nums[p]);
+            while(nums[--j] > nums[p]);
+            if(i >= j) break;
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+        int temp = nums[j];
+        nums[j] = nums[p];
+        nums[p] = temp;
+        return j;
+    }
+
     private void print(String methodName, int[] array) {
         long start;
         long end;
@@ -261,6 +296,8 @@ public class Sort {
         }
     }
 
+
+
     public static void main(String[] args) {
         int max = 100000;
         Sort sort = new Sort();
@@ -271,11 +308,11 @@ public class Sort {
         }
         //System.out.println(Arrays.toString(temp));
 
-        sort.print("bubbleSort", temp);
+        //sort.print("bubbleSort", temp);
 
-        sort.print("insertionSort", temp);
+        //sort.print("insertionSort", temp);
 
-        sort.print("selectionSort", temp);
+        //sort.print("selectionSort", temp);
 
         sort.print("mergeSort", temp);
 
@@ -284,5 +321,9 @@ public class Sort {
         sort.print("bucketSort", temp);
 
         sort.print("heapSort", temp);
+
+        sort.print("heapSort", temp);
+
+        sort.print("quickSort2", temp);
     }
 }
