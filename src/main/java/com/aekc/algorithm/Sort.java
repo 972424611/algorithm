@@ -256,8 +256,8 @@ public class Sort {
     public int[] quickSort2(int[] nums, int p, int r) {
         if(p < r) {
             int q = partition2(nums, p, r);
-            quickSort(nums, p, q - 1);
-            quickSort(nums, q + 1, r);
+            quickSort2(nums, p, q - 1);
+            quickSort2(nums, q + 1, r);
         }
         return nums;
     }

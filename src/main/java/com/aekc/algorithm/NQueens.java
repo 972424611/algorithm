@@ -30,9 +30,11 @@ public class NQueens {
 
     public boolean isSuitablePlacement(int t) {
         for(int i = 0; i < t; i++) {
+            // 判断列
             if(currentSolution[i] == currentSolution[t]) {
                 return false;
             }
+            // 判断斜向，这里通过斜率判断
             if(Math.abs(currentSolution[i] - currentSolution[t]) == t - i) {
                 return false;
             }
@@ -52,6 +54,7 @@ public class NQueens {
         }
         for(int i = 0; i < n; i++) {
             currentSolution[t] = i;
+            // 判断摆放是否合适，不合适就回溯
             if(isSuitablePlacement(t)) {
                backtrack(t + 1);
             }
@@ -59,7 +62,10 @@ public class NQueens {
     }
 
     public static void main(String[] args) {
-        NQueens nQueens = new NQueens(13);
+        long start = System.currentTimeMillis();
+        NQueens nQueens = new NQueens(14);
         System.out.println(nQueens.sum);
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
     }
 }
