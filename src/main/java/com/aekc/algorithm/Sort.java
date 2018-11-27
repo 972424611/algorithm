@@ -268,7 +268,9 @@ public class Sort {
         while(true) {
             while(nums[++i] < nums[p]);
             while(nums[--j] > nums[p]);
-            if(i >= j) break;
+            if(i >= j) {
+                break;
+            }
             int temp = nums[i];
             nums[i] = nums[j];
             nums[j] = temp;
@@ -306,21 +308,19 @@ public class Sort {
         for(int i = 0; i < temp.length; i++) {
             temp[i] = random.nextInt(max);
         }
-        //System.out.println(Arrays.toString(temp));
+        System.out.println(Arrays.toString(temp));
 
-        //sort.print("bubbleSort", temp);
+        sort.print("bubbleSort", temp);
 
-        //sort.print("insertionSort", temp);
+        sort.print("insertionSort", temp);
 
-        //sort.print("selectionSort", temp);
+        sort.print("selectionSort", temp);
 
         sort.print("mergeSort", temp);
 
         sort.print("quickSort", temp);
 
         sort.print("bucketSort", temp);
-
-        sort.print("heapSort", temp);
 
         sort.print("heapSort", temp);
 

@@ -72,7 +72,6 @@ public class EightQueens {
                 //当m>=N说明一种情况完成，继续判断下一种情况
                 if(++m >= N) {
                     //输出该可能的皇后位置排列
-                    /*
                     System.out.println("num: " + list.size() + "--------------------------");
                     for(int x = 0; x < N; x++) {
                         for(int y = 0; y < N; y++) {
@@ -84,7 +83,6 @@ public class EightQueens {
                         }
                         System.out.println();
                     }
-                    */
                     list.add(checkerboard);
                     //把当前位置的皇后标识和攻击范围去除
                     toBack(i, --m);
@@ -106,7 +104,7 @@ public class EightQueens {
 
     public static void main(String[] args) {
         EightQueens eightQueens = new EightQueens();
-        for(int i = 1; i <= 14; i++) {
+        for(int i = 1; i <= 8; i++) {
             N = i;
             checkerboard = new int[i][i];
             eightQueens.search(0);
