@@ -1,12 +1,12 @@
-package com.aekc.algorithm;
+package com.aekc.algorithm.queen;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 八皇后问题(N皇后问题)
+ * 回溯 & 二维 & 排列树
  */
-public class EightQueens {
+public class NQueens {
 
     private static List<int[][]> list = new ArrayList<>();
 
@@ -103,12 +103,12 @@ public class EightQueens {
     }
 
     public static void main(String[] args) {
-        EightQueens eightQueens = new EightQueens();
+        NQueens nQueens = new NQueens();
         for(int i = 14; i <= 14; i++) {
             long start = System.currentTimeMillis();
             N = i;
             checkerboard = new int[i][i];
-            eightQueens.search(0);
+            nQueens.search(0);
             System.out.println(i + "皇后一共有" + list.size() + "种可能");
             long end = System.currentTimeMillis();
             System.out.println(end - start);
