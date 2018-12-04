@@ -1,6 +1,13 @@
 package com.aekc.algorithm.backpack;
 
 import java.util.*;
+/*
+4 10
+4 40
+7 42
+5 25
+4 16
+*/
 
 public class Backpack {
 
@@ -15,13 +22,10 @@ public class Backpack {
     private int number;
 
     public void judge(Node node, Queue<Node> upPriorityQueue) {
-        if(node == null) {
-            return;
-        }
         if(node.getWeight() > capacity || node.getUp() < max) {
             return;
         }
-        if(node.getLayer() < number) {
+        if(node.getLayer() <= number) {
             upPriorityQueue.add(node);
         } else {
             max = node.getValue();
@@ -34,13 +38,16 @@ public class Backpack {
         upPriorityQueue.add(node);
         while(!upPriorityQueue.isEmpty()) {
             node = upPriorityQueue.poll();
+            if(node.getUp() <= max) {
+                break;
+            }
             judge(node.getLeft(), upPriorityQueue);
             judge(node.getRight(), upPriorityQueue);
         }
     }
 
     public void createdBinaryTree(Node node, int index) {
-        if(index >= nodeList.size()) {
+        if(index >= number) {
             return;
         }
         Node currentNode = nodeList.get(index);
@@ -48,7 +55,7 @@ public class Backpack {
             Node leftNode = new Node();
             leftNode.setValue(currentNode.getValue() + node.getValue());
             leftNode.setWeight(currentNode.getWeight() + node.getWeight());
-            leftNode.setLayer(index);
+            leftNode.setLayer(index + 1);
             if(index < nodeList.size() - 1) {
                 Node nextNode = nodeList.get(index + 1);
                 int up = (capacity - node.getWeight()) * (nextNode.getValue() / nextNode.getWeight());
@@ -64,7 +71,7 @@ public class Backpack {
             Node rightNode = new Node();
             rightNode.setValue(node.getValue());
             rightNode.setWeight(node.getWeight());
-            rightNode.setLayer(index);
+            rightNode.setLayer(index + 1);
             if(index < nodeList.size() - 1) {
                 Node nextNode = nodeList.get(index + 1);
                 int up = (capacity - node.getWeight()) * (nextNode.getValue() / nextNode.getWeight());
@@ -109,8 +116,7 @@ public class Backpack {
         head.setLayer(0);
         head.setCurrentSolution("");
         head.setUp(backpack.capacity * (backpack.nodeList.get(0).getValue() / backpack.nodeList.get(0).getWeight()));
-        backpack.createdBinaryTree(head, 1);
-        backpack.preOrderBinaryTree(head);
+        backpack.createdBinaryTree(head, 0);
         backpack.branchBound(head);
         System.out.println(backpack.max);
     }
