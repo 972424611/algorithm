@@ -262,7 +262,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
         }
 
         public void printTree() {
-            System.out.println("Root is: " + vertices.get(root));
+            System.out.println("Node is: " + vertices.get(root));
             System.out.print("Edges: ");
             for(int i = 0; i < parent.length; i++) {
                 if(parent[i] != -1) {
