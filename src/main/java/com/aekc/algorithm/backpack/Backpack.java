@@ -25,7 +25,7 @@ public class Backpack {
         if(node.getWeight() > capacity || node.getUp() < max) {
             return;
         }
-        if(node.getLayer() <= number) {
+        if(node.getLayer() < number) {
             upPriorityQueue.add(node);
         } else {
             max = node.getValue();
@@ -58,8 +58,12 @@ public class Backpack {
             leftNode.setLayer(index + 1);
             if(index < nodeList.size() - 1) {
                 Node nextNode = nodeList.get(index + 1);
-                int up = (capacity - node.getWeight()) * (nextNode.getValue() / nextNode.getWeight());
-                leftNode.setUp(up + node.getValue());
+                int up = (capacity - leftNode.getWeight()) * (nextNode.getValue() / nextNode.getWeight());
+                if(index == 0) {
+                    leftNode.setUp(up + currentNode.getValue());
+                } else {
+                    leftNode.setUp(up + node.getValue());
+                }
             } else {
                 node.setUp(node.getValue());
             }
@@ -74,8 +78,12 @@ public class Backpack {
             rightNode.setLayer(index + 1);
             if(index < nodeList.size() - 1) {
                 Node nextNode = nodeList.get(index + 1);
-                int up = (capacity - node.getWeight()) * (nextNode.getValue() / nextNode.getWeight());
-                rightNode.setUp(up);
+                int up = (capacity - rightNode.getWeight()) * (nextNode.getValue() / nextNode.getWeight());
+                if(index == 0) {
+                    rightNode.setUp(up);
+                } else {
+                    rightNode.setUp(up + node.getValue());
+                }
             } else {
                 node.setUp(node.getValue());
             }
