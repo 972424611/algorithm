@@ -92,6 +92,7 @@ public class BinaryTree {
             leftNode.setLayer(index + 1);
             // 算出剩余容量
             int surplus = backpack.getCapacity() - leftNode.getWeight();
+            // 这里进行减去枝，如果剩余容量小于0说明当前物品无法放入
             if(surplus >= 0) {
                 // 如果不是最后一层，index在这里，可以理解为层级
                 if(index + 1 < itemInfoList.size()) {
