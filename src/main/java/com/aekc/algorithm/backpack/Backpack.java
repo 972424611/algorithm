@@ -53,7 +53,9 @@ public class Backpack {
 
     public void input() {
         Scanner scanner = new Scanner(System.in);
+        // 物品数量
         number = scanner.nextInt();
+        // 背包容量
         capacity = scanner.nextInt();
         binaryTree.setItemInfoList(new ArrayList<>(number));
         for(int i = 0; i < number; i++) {
