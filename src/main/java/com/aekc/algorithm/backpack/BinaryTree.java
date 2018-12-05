@@ -12,7 +12,7 @@ import java.util.Queue;
 public class BinaryTree {
 
     /**
-     * 保存所有物品的基本信息
+     * 保存所有物品的基本信息，根据每单位质量价值从大到小来排序
      */
     private List<ItemInfo> itemInfoList;
 
@@ -38,6 +38,7 @@ public class BinaryTree {
             return;
         }
         // 当前节点对应的总重量超过背包最大容量 || 当前节点最可能的最大价值up小于已知的价值
+        // node.getWeight() > backpack.getCapacity()这个判断其实是多余的。。
         if(node.getWeight() > backpack.getCapacity() || node.getUp() < max) {
             return;
         }

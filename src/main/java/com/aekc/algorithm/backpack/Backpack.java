@@ -37,14 +37,14 @@ public class Backpack {
         head.setValue(0);
         head.setLayer(0);
         head.setCurrentSolution("");
-        // 根据每单位最大价值来排序，从大到小
+        // 根据每单位质量价值来从大到小排序
         binaryTree.getItemInfoList().sort((o1, o2) -> {
             Double a = (double) (o1.getValue() / o1.getWeight());
             Double b = (double) (o2.getValue() / o2.getWeight());
             return b.compareTo(a);
         });
         ItemInfo firstNode = binaryTree.getItemInfoList().get(0);
-        head.setUp(capacity * (firstNode.getValue() / firstNode.getWeight()));
+        head.setUp(capacity * (firstNode.getValue() * 1.0 / firstNode.getWeight()));
         binaryTree.setBackpack(this);
         // 创建树
         binaryTree.createdBinaryTree(head, 0);

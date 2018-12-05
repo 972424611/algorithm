@@ -6,19 +6,19 @@ package com.aekc.algorithm.backpack;
 public class Node extends ItemInfo implements Comparable {
 
     /**
-     * 层级
+     * 层级，用来判断是否为叶子节点
      */
     private int layer;
 
     /**
-     * 当前解
+     * 当前解，算出最大价值后，方便找出拿了哪些物品
      */
     private String currentSolution;
 
     /**
      * 上限
      */
-    private int up;
+    private double up;
 
     /**
      * 取
@@ -48,11 +48,11 @@ public class Node extends ItemInfo implements Comparable {
         this.currentSolution = currentSolution;
     }
 
-    public int getUp() {
+    public double getUp() {
         return up;
     }
 
-    public void setUp(int up) {
+    public void setUp(double up) {
         this.up = up;
     }
 
