@@ -3,17 +3,7 @@ package com.aekc.algorithm.backpack;
 /**
  * 分支定界法，节点属性
  */
-public class Node implements Comparable {
-
-    /**
-     * 重量
-     */
-    private int weight;
-
-    /**
-     * 价值
-     */
-    private int value;
+public class Node extends ItemInfo implements Comparable {
 
     /**
      * 层级
@@ -41,28 +31,6 @@ public class Node implements Comparable {
     private Node right;
 
     public Node() {}
-
-
-    public Node(int weight, int value) {
-        this.weight = weight;
-        this.value = value;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
 
     public int getLayer() {
         return layer;
@@ -104,6 +72,11 @@ public class Node implements Comparable {
         this.right = right;
     }
 
+    /**
+     * 优先队列排列方式，根据up值大小来排序
+     * @param o Node
+     * @return int
+     */
     @Override
     public int compareTo(Object o) {
         Node node = (Node) o;
@@ -115,16 +88,5 @@ public class Node implements Comparable {
         return -1;
     }
 
-    @Override
-    public String toString() {
-        return "Node{" +
-                "weight=" + weight +
-                ", value=" + value +
-                ", layer=" + layer +
-                ", currentSolution=" + currentSolution +
-                ", up=" + up +
-                ", left=" + left +
-                ", right=" + right +
-                '}';
-    }
+
 }
