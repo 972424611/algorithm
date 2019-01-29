@@ -104,7 +104,7 @@ public class NQueens {
 
     public static void main(String[] args) {
         NQueens nQueens = new NQueens();
-        for(int i = 14; i <= 14; i++) {
+        for(int i = 12; i <= 12; i++) {
             long start = System.currentTimeMillis();
             N = i;
             checkerboard = new int[i][i];

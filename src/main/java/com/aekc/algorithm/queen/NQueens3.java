@@ -78,8 +78,8 @@ public class NQueens3 {
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        NQueens3 nQueens = new NQueens3(14);
-        System.out.println(nQueens.sum);
+        NQueens3 nQueens = new NQueens3(12);
+        System.out.println(nQueens.sum * 2);
         long end = System.currentTimeMillis();
         System.out.println(end - start);
     }

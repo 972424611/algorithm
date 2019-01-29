@@ -71,8 +71,8 @@ public class NQueens2 {
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        NQueens2 nQueens2 = new NQueens2(14);
-        System.out.println(nQueens2.sum);
+        NQueens2 nQueens2 = new NQueens2(12);
+        System.out.println(nQueens2.sum * 2);
         long end = System.currentTimeMillis();
         System.out.println(end - start);
     }
