@@ -85,6 +85,8 @@ public class PrimeNumber {
 
     /**
      * 埃拉托色尼筛选算法
+     * 利用当前已经找到的素数，从后面的数中筛去当前素数的倍数
+     * 但是某些数被每个质因子都筛了一遍导致速度减慢
      * 时间复杂度为：O(n√n / logn)
      */
     public void primeNumber4(int n) {
@@ -105,7 +107,33 @@ public class PrimeNumber {
                 count++;
             }
         }
-        System.out.println("\ncount :" + count);
+        System.out.println("\ncount: " + count);
+    }
+
+    /**
+     * 欧拉筛选法
+     * 在埃氏筛法的基础上，让每个合数只被它的最小质因子筛选一次，以达到不重复的目的
+     * 时间复杂度为：O(n)
+     */
+    public void primeNumber5(int n) {
+        int[] primes = new int[n + 1];
+        boolean[] isNotPrime = new boolean[n + 1];
+        int count = 0;
+        for(int i = 2; i <= n; i++) {
+            if(!isNotPrime[i]) {
+                primes[count++] = i;
+            }
+            for(int j = 0; j < count; j++) {
+                if(i * primes[j] > n) {
+                    break;
+                }
+                isNotPrime[i * primes[j]] = true;
+                if(i % primes[j] == 0) {
+                    break;
+                }
+            }
+        }
+        System.out.println("\ncount: " + count);
     }
 
     public static void main(String[] args) {
@@ -139,5 +167,11 @@ public class PrimeNumber {
         end = System.currentTimeMillis();
 
         System.out.printf("primeNumber4 所用时间为(单位毫秒)：%d\n", end - start);
+
+        start = System.currentTimeMillis();
+        new PrimeNumber().primeNumber5(n);
+        end = System.currentTimeMillis();
+
+        System.out.printf("primeNumber5 所用时间为(单位毫秒)：%d\n", end - start);
     }
 }
