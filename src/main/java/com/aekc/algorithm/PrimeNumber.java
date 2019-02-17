@@ -56,6 +56,9 @@ public class PrimeNumber {
 
     /**
      * 检测直到√n的素数因子
+     * 简易证明：如果i不是素数，那就必须存在一个素数p，满足i=pq且p<=q。
+     * k也是i的最小因子，这和p是i的最小因子是冲突的。因此，如果i不是素数，
+     * 那么可以找出2到√i之间的被i整除的素数。
      * 时间复杂度为：O(n√n / logn)
      */
     public void primeNumber3(int n) {
@@ -86,7 +89,7 @@ public class PrimeNumber {
     /**
      * 埃拉托色尼筛选算法
      * 利用当前已经找到的素数，从后面的数中筛去当前素数的倍数
-     * 但是某些数被每个质因子都筛了一遍导致速度减慢
+     * 但是某些数被每个质因子都筛了一遍导致速度减慢，空间开销大
      * 时间复杂度为：O(n√n / logn)
      */
     public void primeNumber4(int n) {
