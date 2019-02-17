@@ -90,7 +90,7 @@ public class PrimeNumber {
      * 埃拉托色尼筛选算法
      * 利用当前已经找到的素数，从后面的数中筛去当前素数的倍数
      * 但是某些数被每个质因子都筛了一遍导致速度减慢，空间开销大
-     * 时间复杂度为：O(n√n / logn)
+     * 时间复杂度为：O(n√n / logn) 接近于 O(n)
      */
     public void primeNumber4(int n) {
         boolean[] primes = new boolean[n + 1];
@@ -116,6 +116,7 @@ public class PrimeNumber {
     /**
      * 欧拉筛选法
      * 在埃氏筛法的基础上，让每个合数只被它的最小质因子筛选一次，以达到不重复的目的
+     * 空间开销更大
      * 时间复杂度为：O(n)
      */
     public void primeNumber5(int n) {
