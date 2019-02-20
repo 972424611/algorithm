@@ -18,6 +18,13 @@ public class CompleteBinaryTree {
         }
     }
 
+    /**
+     *       1
+     *   2      3
+     * 4   5  #   #
+     */
+    private char[] treeValue = {'1', '2', '3', '4', '5', '#', '#'};
+
     public Node buildTree() {
         LinkedList<Node> queue = new LinkedList<>();
         Node head = new Node(treeValue[0] - '0');
@@ -79,12 +86,7 @@ public class CompleteBinaryTree {
         return true;
     }
 
-    /**
-     *       1
-     *   2      3
-     * 4   5  6   7
-     */
-    private char[] treeValue = {'1', '2', '3', '4', '5', '#', '#'};
+
 
     public static void main(String[] args) {
         CompleteBinaryTree tree = new CompleteBinaryTree();
